@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileReader</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>TABELLA MIGRANTI</h1>
+    <input type="file" id="csvFileInput" accept=".csv">
+    <table id="csvTable">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        document.getElementById('csvFileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+
+            reader.onload = function() {
+                const text = reader.result;
+                const rows = text.split('\n').filter(row => row.trim() !== '');
+
+                const table = document.getElementById('csvTable');
+                const thead = table.querySelector('thead');
+                const tbody = table.querySelector('tbody');
+
+                thead.innerHTML = '';
+                tbody.innerHTML = '';
+
+                rows.forEach((row, index) => {
+                    const cells = row.split(',');
+                    const tr = document.createElement('tr');
+
+                    cells.forEach(cell => {
+                        const element = index === 0 ? 'th' : 'td';
+                        const cellElement = document.createElement(element);
+                        cellElement.textContent = cell.trim();
+                        tr.appendChild(cellElement);
+                    });
+
+                    if (index === 0) {
+                        thead.appendChild(tr);
+                    } else {
+                        tbody.appendChild(tr);
+                    }
+                });
+            };
+
+            reader.onerror = function() {
+                console.error('Error reading file:', reader.error);
+            };
+
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>
