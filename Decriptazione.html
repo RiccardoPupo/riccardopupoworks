@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decrittografa File</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .contenitore {
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 30px;
+      display: inline-block;
+      margin-top: 50px;
+    }
+    input[type="text"] {
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    textarea {
+      width: 90%;
+      height: 150px;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenitore">
+    <h1>Decrittografa il Testo</h1>
+    <input type="text" id="inputChiave" placeholder="Inserisci la chiave (numero)"><br>
+    <button onclick="decripta()">Decrittografa</button>
+    <br>
+    <textarea id="testoCriptato" readonly placeholder="Testo criptato..."></textarea>
+    <textarea id="testoDecriptato" readonly placeholder="Testo decrittografato..."></textarea>
+    <br><br>
+    <button onclick="window.location.href='Criptazione.html'">Torna alla Criptazione</button> 
+  </div>
+
+  <script>
+    let testoCriptato = localStorage.getItem("TestoCriptato");
+    document.getElementById("testoCriptato").value = testoCriptato;
+
+    function decripta() {
+      const chiave = parseInt(document.getElementById("inputChiave").value);
+      if (isNaN(chiave) || !testoCriptato) return alert("Controlla testo e chiave.");
+      let testoDecriptato = "";
+      for (let i = 0; i < testoCriptato.length; i++) {
+        testoDecriptato += String.fromCharCode(testoCriptato.charCodeAt(i) - chiave);
+      }
+      document.getElementById("testoDecriptato").value = testoDecriptato;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crittografa File</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .contenitore {
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 30px;
+      display: inline-block;
+      margin-top: 50px;
+    }
+    input[type="file"],
+    input[type="text"] {
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    textarea {
+      width: 90%;
+      height: 150px;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenitore">
+    <h1>Crittografa un File di Testo</h1>
+    <input type="file" id="inputFile" accept=".txt"><br>
+    <input type="text" id="inputChiave" placeholder="Inserisci la chiave (numero)"><br>
+    <button onclick="cripta()">Crittografa</button>
+    <br>
+    <textarea id="risultato" readonly placeholder="Il testo crittografato apparirà qui..."></textarea>
+    <br><br>
+    <button onclick="window.location.href='Decriptazione.html'">Vai alla Decriptazione</button> 
+  </div>
+
+  <script>
+    let testo = "";
+
+    document.getElementById('inputFile').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          testo = e.target.result;
+        }
+        reader.readAsText(file);
+      }
+    });
+
+    function cripta(){
+      const chiave = parseInt(document.getElementById("inputChiave").value);
+      if (!testo || isNaN(chiave)) return alert("Controlla file e chiave.");
+      let testoCriptato = "";
+      for (let i = 0; i < testo.length; i++){
+        testoCriptato += String.fromCharCode(testo.charCodeAt(i) + chiave);
+      }
+      localStorage.setItem("TestoCriptato", testoCriptato);
+      document.getElementById("risultato").value = testoCriptato;
+    }
+  </script>
+</body>
+</html>
