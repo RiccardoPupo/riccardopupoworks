@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inserimento Dati</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+        table {
+            margin-top: 20px;
+            border: 1px solid black;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Inserisci i dati</h1>
+
+    <form onsubmit="aggiungiPersona(); return false;">
+        <input type="text" id="nome" placeholder="Nome"><br>
+        <input type="text" id="cognome" placeholder="Cognome"><br>
+        <input type="text" id="eta" placeholder="Età"><br>
+        <input type="text" id="indirizzo" placeholder="Indirizzo"><br>
+        <input type="text" id="cap" placeholder="CAP"><br>
+        <input type="text" id="citta" placeholder="Città"><br>
+        <input type="submit" value="Aggiungi">
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Età</th>
+                <th>Indirizzo</th>
+                <th>CAP</th>
+                <th>Città</th>
+            </tr>
+        </thead>
+        <tbody id="tabella"></tbody>
+    </table>
+
+    <script>
+        function aggiungiPersona() {
+            var nome = document.getElementById("nome").value;
+            var cognome = document.getElementById("cognome").value;
+            var eta = document.getElementById("eta").value;
+            var indirizzo = document.getElementById("indirizzo").value;
+            var cap = document.getElementById("cap").value;
+            var citta = document.getElementById("citta").value;
+
+            if (nome && cognome && eta && indirizzo && cap && citta) {
+                var tabella = document.getElementById("tabella");
+                var nuovaRiga = tabella.insertRow();
+                nuovaRiga.innerHTML = "<td>" + nome + "</td><td>" + cognome + "</td><td>" + eta + "</td><td>" + indirizzo + "</td><td>" + cap + "</td><td>" + citta + "</td>";
+                
+                
+                document.getElementById("nome").value = '';
+                document.getElementById("cognome").value = '';
+                document.getElementById("eta").value = '';
+                document.getElementById("indirizzo").value = '';
+                document.getElementById("cap").value = '';
+                document.getElementById("citta").value = '';
+            } else {
+                alert("Compila tutti i campi!");
+            }
+        }
+    </script>
+
+</body>
+</html>
