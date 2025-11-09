@@ -1,13 +1,14 @@
 [
-  { "nome": "Marco",   "cognome": "Rossi",       "Anno": "2007-05-12" },
-  { "nome": "Luca",    "cognome": "Bianchi",     "Anno": "2006-11-02" },
-  { "nome": "Sara",    "cognome": "Adesuwa",     "Anno": "2005-03-21" },
-  { "nome": "Omar",    "cognome": "Al Muhtaseb", "Anno": "2009-08-10" },
-  { "nome": "Giulia",  "cognome": "Verdi",       "Anno": "2008-12-30" },
-  { "nome": "Anna",    "cognome": "Ferrari",     "Anno": "2003-01-09" },
-  { "nome": "Tommaso", "cognome": "De Luca",     "Anno": "2009-07-25" },
-  { "nome": "Paolo",   "cognome": "Gallo",       "Anno": "1999-02-14" },
-  { "nome": "Chiara",  "cognome": "Moretti",     "Anno": "2006-06-30" },
-  { "nome": "Francesca","cognome": "Amato",      "Anno": "2005-09-17" }
+  { "nome": "Marco",   "cognome": "Rossi",       "Anno": 2007 },
+  { "nome": "Luca",    "cognome": "Bianchi",     "Anno": 2006 },
+  { "nome": "Sara",    "cognome": "Adesuwa",     "Anno": 2005 },
+  { "nome": "Omar",    "cognome": "Al Muhtaseb", "Anno": 2009 },
+  { "nome": "Giulia",  "cognome": "Verdi",       "Anno": 2008 },
+  { "nome": "Anna",    "cognome": "Ferrari",     "Anno": 2003 },
+  { "nome": "Tommaso", "cognome": "De Luca",     "Anno": 2009 },
+  { "nome": "Paolo",   "cognome": "Gallo",       "Anno": 1999 },
+  { "nome": "Chiara",  "cognome": "Moretti",     "Anno": 2006 },
+  { "nome": "Francesca","cognome": "Amato",      "Anno": 2005 }
 ]
+
 
