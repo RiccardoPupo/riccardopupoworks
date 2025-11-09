@@ -1,12 +1,12 @@
 [
-  { "nome": "Marco",   "cognome": "Rossi",       "dataNascita": "2007-05-12" },
-  { "nome": "Luca",    "cognome": "Bianchi",     "dataNascita": "2006-11-02" },
-  { "nome": "Sara",    "cognome": "Adesuwa",     "dataNascita": "2005-03-21" },
-  { "nome": "Omar",    "cognome": "Al Muhtaseb", "dataNascita": "2009-08-10" },
-  { "nome": "Giulia",  "cognome": "Verdi",       "dataNascita": "2008-12-30" },
-  { "nome": "Anna",    "cognome": "Ferrari",     "dataNascita": "2003-01-09" },
-  { "nome": "Tommaso", "cognome": "De Luca",     "dataNascita": "2009-07-25" },
-  { "nome": "Paolo",   "cognome": "Gallo",       "dataNascita": "1999-02-14" },
-  { "nome": "Chiara",  "cognome": "Moretti",     "dataNascita": "2006-06-30" },
-  { "nome": "Francesca","cognome": "Amato",      "dataNascita": "2005-09-17" }
+  { "nome": "Marco",   "cognome": "Rossi",       "annoNascita": "2007-05-12" },
+  { "nome": "Luca",    "cognome": "Bianchi",     "annoNascita": "2006-11-02" },
+  { "nome": "Sara",    "cognome": "Adesuwa",     "annoNascita": "2005-03-21" },
+  { "nome": "Omar",    "cognome": "Al Muhtaseb", "annoNascita": "2009-08-10" },
+  { "nome": "Giulia",  "cognome": "Verdi",       "annoNascita": "2008-12-30" },
+  { "nome": "Anna",    "cognome": "Ferrari",     "annoNascita": "2003-01-09" },
+  { "nome": "Tommaso", "cognome": "De Luca",     "annoNascita": "2009-07-25" },
+  { "nome": "Paolo",   "cognome": "Gallo",       "annoNascita": "1999-02-14" },
+  { "nome": "Chiara",  "cognome": "Moretti",     "annoNascita": "2006-06-30" },
+  { "nome": "Francesca","cognome": "Amato",      "annoNascita": "2005-09-17" }
 ]
