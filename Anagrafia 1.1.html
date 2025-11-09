@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Anagrafica 1.1</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #f0f4f7, #d9e2ec);
+      color: #333;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 8px 12px;
+      margin: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 4px #2980b9;
+    }
+
+    button {
+      background-color: black;
+      color: yellow;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: grey;
+      transform: scale(1.05);
+    }
+
+    p#gen {
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th {
+      background-color: black;
+      color: yellow;
+      padding: 12px;
+    }
+
+    td {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f6fa;
+    }
+
+    tr:hover {
+      background-color: #eaf3fb;
+    }
+  </style>
+</head>
+<body>
+  <h2>ANAGRAFIA 1.1</h2>
+
+  <div class="controls">
+    <input type="text" id="lettera" placeholder="Lettera iniziale">
+    <button onclick="filtra()">Filtra</button>
+    <button onclick="maggiorenni()">Maggiorenni</button>
+    <br>
+    <input type="number" id="annoInput" placeholder="Inserisci anno">
+    <button onclick="mostraGenerazione()">Generazione</button>
+  </div>
+
+  <p id="gen"></p>
+
+  <table>
+    <thead>
+      <tr><th>Nome</th><th>Cognome</th><th>Anno</th><th>Generazione</th></tr>
+    </thead>
+    <tbody id="demo"></tbody>
+  </table>
+
+<script>
+let elencoUtenti = [];
+
+var richiestaDati = new XMLHttpRequest();
+richiestaDati.open("GET", "prova.json");
+richiestaDati.onload = function() {
+  elencoUtenti = JSON.parse(richiestaDati.responseText);
+  mostraTabella(elencoUtenti);
+};
+richiestaDati.send();
+
+function mostraTabella(listaUtenti) {
+  var contenutoTabella = "";
+  for (var i = 0; i < listaUtenti.length; i++) {
+    contenutoTabella += "<tr><td>" + listaUtenti[i].nome + "</td><td>" + listaUtenti[i].cognome +
+    "</td><td>" + listaUtenti[i].anno + "</td><td>" +
+    calcolaGenerazione(listaUtenti[i].anno) + "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = contenutoTabella;
+}
+
+function calcolaGenerazione(annoNascita) {
+  if (annoNascita >= 2013) return "Alpha";
+  if (annoNascita >= 1997) return "Z";
+  if (annoNascita >= 1981) return "Millennials";
+  if (annoNascita >= 1965) return "X";
+  if (annoNascita >= 1946) return "Boomers";
+  if (annoNascita >= 1923) return "Silent Generation";
+  return "Altro";
+}
+
+function filtra() {
+  var letteraIniziale = (document.getElementById("lettera").value || "").trim();
+  var utentiFiltrati = [];
+  for (var i = 0; i < elencoUtenti.length; i++) {
+    var inizialeCognome = elencoUtenti[i].cognome[0];
+    if (inizialeCognome == letteraIniziale) {
+      utentiFiltrati.push(elencoUtenti[i]);
+    }
+  }
+  mostraTabella(utentiFiltrati);
+}
+
+function maggiorenni() {
+  var utentiMaggiorenni = [];
+  const dataCorrente = new Date();
+  for (var i = 0; i < elencoUtenti.length; i++) {
+    if (dataCorrente.getFullYear() - elencoUtenti[i].anno >= 18) {
+      utentiMaggiorenni.push(elencoUtenti[i]);
+    }
+  }
+  mostraTabella(utentiMaggiorenni);
+}
+
+function mostraGenerazione() {
+  var annoInserito = Number(document.getElementById("annoInput").value);
+  if (!annoInserito) return;
+  document.getElementById("gen").textContent = "Generazione: " + calcolaGenerazione(annoInserito);
+}
+</script>
+</body>
+</html>
