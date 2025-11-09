@@ -1,15 +1,16 @@
 [
-  { "nome": "Marco",   "cognome": "Rossi",       "anno": 2007 },
-  { "nome": "Luca",    "cognome": "Bianchi",     "anno": 2006 },
-  { "nome": "Sara",    "cognome": "Adesuwa",     "anno": 2005 },
-  { "nome": "Omar",    "cognome": "Al Muhtaseb", "anno": 2009 },
-  { "nome": "Giulia",  "cognome": "Verdi",       "anno": 2008 },
-  { "nome": "Anna",    "cognome": "Ferrari",     "anno": 2003 },
-  { "nome": "Tommaso", "cognome": "De Luca",     "anno": 2009 },
-  { "nome": "Paolo",   "cognome": "Gallo",       "anno": 1999 },
-  { "nome": "Chiara",  "cognome": "Moretti",     "anno": 2006 },
-  { "nome": "Francesca","cognome": "Amato",      "anno": 2005 }
+  { "nome": "Marco","cognome": "Rossi","anno": "2007" },
+  { "nome": "Luca","cognome": "Bianchi","anno": "2006" },
+  { "nome": "Sara","cognome": "Adesuwa","anno": "2005" },
+  { "nome": "Omar","cognome": "Al Muhtaseb","anno": "2009" },
+  { "nome": "Giulia","cognome": "Verdi","anno": "2008" },
+  { "nome": "Anna","cognome": "Ferrari","anno": "2003" },
+  { "nome": "Tommaso","cognome": "De Luca","anno": "2009" },
+  { "nome": "Paolo","cognome": "Gallo","anno": "1999" },
+  { "nome": "Chiara","cognome": "Moretti","anno": "2006" },
+  { "nome": "Francesca","cognome": "Amato","anno": "2005" }
 ]
+
 
 
 
